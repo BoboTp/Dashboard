@@ -23,6 +23,7 @@ USERNAME_PASSWORD_PAIRS = [['bobo','bobo'],['username','password']]
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 # Launch the application:
+#Hosting the Application in Heroku
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 auth = dash_auth.BasicAuth(app,USERNAME_PASSWORD_PAIRS)
 
@@ -68,6 +69,7 @@ valuesof410_Th_six = df6.columns[1:16]
 valuesof400_Th_six = df6.columns[17:32]
 
 
+#Generating Scatter Plot for the dataframes  df1 and df2 
 
 
 traces = go.Scatter(
@@ -329,6 +331,9 @@ app.layout = html.Div([
 def render_content(tab):
     if tab == 'tab-1':
 
+
+#returning the scatter plots for df1 
+
         return html.Div([
             #importing TABLE to the Dash Board
             #dash_table.DataTable(
@@ -402,6 +407,8 @@ def render_content(tab):
     ),
 ])
 
+
+
 #####################################
 #                                   #
 #                                   #
@@ -409,6 +416,9 @@ def render_content(tab):
 #                                   #
 #                                   #
 #####################################   
+
+
+#returning the scatter plots for df2
 
     elif tab == 'tab-2':
         return html.Div([
@@ -488,6 +498,8 @@ def render_content(tab):
 #                                   #
 #                                   #
 #####################################
+
+#Generating the scatter plot and returning the scatter plot when clicked on Tab-3
 
 
 @app.callback(
@@ -696,6 +708,9 @@ def update_graph(Pl410,Pl400):
 #                                   #
 #####################################
 
+
+#Generating the scatter plot and returning the scatter plot when clicked on Tab-4
+
 @app.callback(
     Output('Thruput_graph_four', 'figure'),
     [Input('Dropdown410_Throughput_four', 'value'),
@@ -799,6 +814,10 @@ def update_graph(Th410,Th400):
 #                                   #
 #                                   #
 #####################################
+
+
+
+#Generating the scatter plot and returning the scatter plot when clicked on Tab-5
 
 @app.callback(
     Output('Thruput_graph_five', 'figure'),
@@ -1003,6 +1022,11 @@ def update_graph(Pl410,Pl400):
 #                                   #
 #                                   #
 #####################################
+
+
+#Generating the scatter plot and returning the scatter plot when clicked on Tab-6
+
+
 @app.callback(
     Output('Thruput_graph_six', 'figure'),
     [Input('Dropdown410_Throughput_six', 'value'),
